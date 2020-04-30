@@ -25,5 +25,14 @@ RSpec.describe 'hyrax/datasets/_form.html.erb', type: :view do
       expect(rendered).to have_selector('#files[role="tabpanel"]')
       expect(rendered).to have_selector('#share[data-param-key="dataset"]')
     end
+
+    it 'renders required fields' do
+      render
+      expect(rendered).to have_selector('label.required[for="dataset_title"]')
+      expect(rendered).to have_selector('label.required[for="dataset_description"]')
+      expect(rendered).to have_selector('label.required[for="dataset_data_origin"]')
+      expect(rendered).to have_selector('label.required[for="dataset_keyword"]')
+      expect(rendered).to have_selector('label.required[for="dataset_supervisor_approval"]')
+    end
   end
 end

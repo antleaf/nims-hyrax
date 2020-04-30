@@ -27,13 +27,13 @@ module Hyrax
 
     self.required_fields -= [
       # Fields not interested in
-      :creator, :keyword, :rights_statement,
+      :creator, :rights_statement,
       # Fields interested in, but removing to re-order
       :title]
 
     self.required_fields += [
       # Adding all required fields in order of display in form
-      :supervisor_approval, :title, :resource_type
+      :supervisor_approval, :title, :resource_type, :description, :keyword
     ]
 
     NESTED_ASSOCIATIONS = [:complex_date, :complex_identifier,
