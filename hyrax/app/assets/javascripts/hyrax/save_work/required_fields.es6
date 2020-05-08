@@ -56,8 +56,12 @@ export class RequiredFields {
       // TODO this label replace is not right, but ids with [] are not allowed in htlm
       // and need to be fixed in the nested inputs. Jquery throws an exeption if we try
       // to match on for block with square brackets
-      var label = $(`label[for=${elem.id.replace(/\[|\]/g, '_')}]`)
+      var elem_id = elem.id.replace(/\[|\]/g, '_')
+      var label = $(`label[for=${elem_id.replace(/__/g, '_')}]`)
+      // var label = $(`label[for=${elem.id.replace(/\[|\]/g, '_')}]`)
+
       // only run css updates if they are needed, as they are expensive
+      // this first one never gets called
       if(!requiredButBlank && label.hasClass('required')) {
         this.notRequired(elem, label)
       } else if( requiredButBlank && !label.hasClass('required')) {

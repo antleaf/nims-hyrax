@@ -29,6 +29,7 @@ nims:
     complex_identifier:
       required:
         - ['identifier']
+        - ['scheme']
     complex_rights:
       required:
         - ['rights']
