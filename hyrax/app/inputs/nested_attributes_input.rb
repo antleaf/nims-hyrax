@@ -119,14 +119,20 @@ class NestedAttributesInput < MultiValueInput
 
     def class_for(attribute_name, field, model_class=@builder.object.class.model_class)
       requirements = model_class.requirements_for(attribute_name)
+      if (requirements[:required] && requirements[:required].flatten.include?(field.to_s)) ||
+         (requirements[:conditional] && requirements[:conditional][field].present?)
+        'required-if'
+      else
+        ''
+      end
+    end
+
+    def requirements_for(attribute_name, field, model_class=@builder.object.class.model_class)
+      requirements = model_class.requirements_for(attribute_name)
       if requirements[:required] && requirements[:required].flatten.include?(field.to_s)
-        'require-if-any'
+        'any'
       elsif requirements[:conditional] && requirements[:conditional][field].present?
-        cl = []
-        requirements[:conditional][field].each do | conditional_field |
-          cl << "require-if-#{conditional_field}"
-        end
-        cl.join(' ')
+        requirements[:conditional][field].join(';')
       end
     end
 end

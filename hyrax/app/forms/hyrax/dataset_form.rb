@@ -36,7 +36,7 @@ module Hyrax
       :title]
 
     self.required_fields += [
-      # # Adding all required fields in order of display in form
+      # Adding all required fields in order of display in form
       :supervisor_approval, :title, :data_origin
     ]
 
