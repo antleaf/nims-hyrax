@@ -153,5 +153,8 @@ class SolrDocument
   def doi
     self[Solrizer.solr_name('doi', :stored_searchable)]
   end
-end
 
+  def file_size
+    self[Solrizer.solr_name("file_size", 'lts')]
+  end
+end
