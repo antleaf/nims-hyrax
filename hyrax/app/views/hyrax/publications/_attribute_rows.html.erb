@@ -32,8 +32,7 @@
 <% end %>
 
 <% if can? :read_rights, presenter.model_name.name.constantize %>
-  <%= presenter.attribute_to_html(:complex_rights, render_as: :nested_rights, label: t('ngdr.fields.complex_rights'), html_dl: true) %>
-  <%#= presenter.attribute_to_html(:rights_statement, render_as: :rights_statement, html_dl: true) %>
+  <%= presenter.attribute_to_html(:rights_statement, render_as: :rights_statement, html_dl: true) %>
 <% end %>
 
 <% if can? :read_version, presenter.model_name.name.constantize %>

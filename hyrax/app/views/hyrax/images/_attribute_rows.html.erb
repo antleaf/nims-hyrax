@@ -42,10 +42,6 @@
   <%= presenter.attribute_to_html(:complex_person, render_as: :nested_person, label: t('ngdr.fields.complex_person'), html_dl: true) %>
 <% end %>
 
-<% if can? :read_rights, presenter.model_name.name.constantize %>
-  <%= presenter.attribute_to_html(:complex_rights, render_as: :nested_rights, label: t('ngdr.fields.complex_rights'), html_dl: true) %>
-<% end %>
-
 <% if can? :read_version, presenter.model_name.name.constantize %>
   <%= presenter.attribute_to_html(:complex_version, render_as: :nested_version, label: t('ngdr.fields.complex_version'), html_dl: true) %>
 <% end %>

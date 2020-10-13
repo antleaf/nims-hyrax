@@ -8,7 +8,7 @@ module Hyrax
     self.terms -= [
       # Fields not interested in
       :based_near, :contributor, :creator, :date_created, :identifier, :license,
-      :related_url, :resource_type, :rights_statement, :source,
+      :related_url, :resource_type, :source,
       # Fields interested in, but removing to re-order
       :title, :description, :keyword, :language, :publisher, :resource_type, :subject
       # Fields that are not displayed
@@ -20,7 +20,7 @@ module Hyrax
       # Adding all fields in order of display in form
       :first_published_url, :supervisor_approval,
       :title, :alternative_title, :description, :keyword, :language,
-      :publisher, :complex_rights, :subject, :complex_date, :complex_person,
+      :publisher, :subject, :complex_date, :complex_person,
       :complex_version, :characterization_methods, :computational_methods,
       :complex_organization,
       :complex_identifier,
@@ -31,7 +31,7 @@ module Hyrax
 
     self.required_fields -= [
       # Fields not interested in
-      :creator, :keyword, :rights_statement,
+      :creator, :keyword,
       # Fields interested in, but removing to re-order
       :title]
 
@@ -48,7 +48,7 @@ module Hyrax
         :title, :alternative_title, :data_origin, :description, :keyword,
         :specimen_set, :complex_person,
         :complex_identifier, # not using this
-        :complex_date, :complex_rights, :complex_version, :complex_relation,
+        :complex_date, :complex_version, :complex_relation,
         :custom_property
       ]
     end
@@ -72,7 +72,7 @@ module Hyrax
     end
 
     NESTED_ASSOCIATIONS = [:complex_date, :complex_identifier, :complex_instrument,
-      :complex_organization, :complex_person, :complex_relation, :complex_rights,
+      :complex_organization, :complex_person, :complex_relation,
       :complex_specimen_type, :complex_version, :custom_property].freeze
 
     protected
@@ -286,7 +286,6 @@ module Hyrax
       permitted << { complex_person_attributes: permitted_person_params }
       permitted << { complex_organization_attributes: permitted_organization_params }
       permitted << { complex_relation_attributes: permitted_relation_params }
-      permitted << { complex_rights_attributes: permitted_rights_params }
       permitted << { complex_specimen_type_attributes: permitted_specimen_type_params }
       permitted << { complex_version_attributes: permitted_version_params }
       permitted << { custom_property_attributes: permitted_custom_property_params }

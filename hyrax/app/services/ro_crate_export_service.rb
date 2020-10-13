@@ -27,7 +27,7 @@ class ROCrateExportService
     crate.name = @work.title.first
     crate.url = @work_solr.persistent_url(host: @hostname)
     crate.author = @work.complex_person.map{|p| p.name.first}.sort.join(', ')
-    crate.license = @work.complex_rights.map{|r| r.rights_ids.first}.sort.join(', ')
+    crate.license = @work.rights_statment.sort.join(', ')
     crate.publisher = @work.publisher.sort.join(', ')
     crate.add_organization('https://ror.org/026v1ze26', identifier: "https://ror.org/026v1ze26", name: "National Institute for Materials Science")
     crate.preview.template = File.read('app/views/ro_crate/preview.html.erb')

@@ -7,7 +7,7 @@ module Hyrax
     self.terms -= [
       # Fields not interested in
       :based_near, :contributor, :creator, :date_created, :identifier, :license,
-      :rights_statement, :related_url, :source,
+      :related_url, :source,
       # Fields interested in, but removing to re-order
       :title, :description, :keyword, :language, :publisher, :resource_type,
       :subject
@@ -20,14 +20,14 @@ module Hyrax
       # Adding all fields in order of display in form
       :first_published_url, :supervisor_approval,
       :title, :alternative_title, :complex_person, :description, :keyword,
-      :publisher, :resource_type, :complex_rights,
+      :publisher, :resource_type,
       :complex_date, :complex_identifier, :complex_source, :complex_version,
       :complex_event, :language
     ]
 
     self.required_fields -= [
       # Fields not interested in
-      :creator, :keyword, :rights_statement,
+      :creator, :keyword,
       # Fields interested in, but removing to re-order
       :title]
 
@@ -38,7 +38,7 @@ module Hyrax
     ]
 
     NESTED_ASSOCIATIONS = [:complex_date, :complex_identifier,
-      :complex_person, :complex_rights, :complex_version, :complex_event, :complex_source].freeze
+      :complex_person, :complex_version, :complex_event, :complex_source].freeze
 
     protected
 
@@ -159,7 +159,6 @@ module Hyrax
       permitted << { complex_date_attributes: permitted_date_params }
       permitted << { complex_identifier_attributes: permitted_identifier_params }
       permitted << { complex_person_attributes: permitted_person_params }
-      permitted << { complex_rights_attributes: permitted_rights_params }
       permitted << { complex_version_attributes: permitted_version_params }
       permitted << { complex_event_attributes: permitted_event_params }
       permitted << { complex_source_attributes: permitted_source_params }
