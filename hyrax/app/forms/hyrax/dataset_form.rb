@@ -37,7 +37,7 @@ module Hyrax
 
     self.required_fields += [
       # # Adding all required fields in order of display in form
-      :first_published_url, :supervisor_approval, :title, :data_origin,
+      :supervisor_approval, :title, :data_origin,
       :description, :keyword
     ]
 
@@ -46,7 +46,7 @@ module Hyrax
         # Description tab order determined here
         :first_published_url, :supervisor_approval,
         :title, :alternative_title, :data_origin, :description, :keyword,
-        :specimen_set, :complex_person, 
+        :specimen_set, :complex_person,
         :complex_identifier, # not using this
         :complex_date, :complex_rights, :complex_version, :complex_relation,
         :custom_property
