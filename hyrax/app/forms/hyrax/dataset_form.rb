@@ -8,9 +8,9 @@ module Hyrax
     self.terms -= [
       # Fields not interested in
       :based_near, :contributor, :creator, :date_created, :identifier, :license,
-      :related_url, :resource_type, :source,
+      :related_url, :source,
       # Fields interested in, but removing to re-order
-      :title, :description, :keyword, :language, :publisher, :resource_type, :subject
+      :title, :description, :keyword, :language, :publisher, :subject
       # Fields that are not displayed
       # :import_url, :date_modified, :date_uploaded, :depositor, :bibliographic_citation,
       # :date_created, :label, :relative_path
@@ -19,7 +19,7 @@ module Hyrax
     self.terms += [
       # Adding all fields in order of display in form
       :first_published_url, :supervisor_approval,
-      :title, :alternative_title, :description, :keyword, :language,
+      :title, :alternative_title, :description, :keyword, :language, :licensed_date,
       :publisher, :subject, :complex_date, :complex_person,
       :complex_version, :characterization_methods, :computational_methods,
       :complex_organization,
@@ -280,6 +280,7 @@ module Hyrax
 
     def self.build_permitted_params
       permitted = super
+      permitted << :licensed_date
       permitted << { complex_date_attributes: permitted_date_params }
       permitted << { complex_identifier_attributes: permitted_identifier_params }
       permitted << { complex_instrument_attributes: permitted_instrument_params }

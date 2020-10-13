@@ -22,7 +22,7 @@ module Hyrax
       :title, :alternative_title, :complex_person, :description, :keyword,
       :publisher, :resource_type,
       :complex_date, :complex_identifier, :complex_source, :complex_version,
-      :complex_event, :language
+      :complex_event, :language, :licensed_date
     ]
 
     self.required_fields -= [
@@ -156,6 +156,7 @@ module Hyrax
 
     def self.build_permitted_params
       permitted = super
+      permitted << :licensed_date
       permitted << { complex_date_attributes: permitted_date_params }
       permitted << { complex_identifier_attributes: permitted_identifier_params }
       permitted << { complex_person_attributes: permitted_person_params }

@@ -13,6 +13,7 @@ volumes:
   cache:
   fcrepo:
   redis:
+  data:
 
 services:
 
@@ -31,7 +32,7 @@ services:
       - file_uploads:${UPLOADS_PATH}
       - derivatives:${DERIVATIVES_PATH}
       - cache:${CACHE_PATH}
-      - ${HOST_APP_DATA_PATH:-/srv/ngdr/data/}:/data/data
+      - ./hyrax:/data:cached
 
   web:
     ports:
@@ -40,11 +41,23 @@ services:
       - cas
     environment:
       - RAILS_FORCE_SSL=false
+    volumes:
+      - file_uploads:${UPLOADS_PATH}
+      - derivatives:${DERIVATIVES_PATH}
+      - cache:${CACHE_PATH}
+      - ./hyrax:/data
     networks:
       internal:
         aliases:
           - web
           - mdr.nims.test
+
+  workers:
+    volumes:
+      - file_uploads:${UPLOADS_PATH}
+      - derivatives:${DERIVATIVES_PATH}
+      - cache:${CACHE_PATH}
+      - ./hyrax:/data:cached
 
   redis:
     volumes:

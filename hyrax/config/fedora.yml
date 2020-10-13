@@ -1,12 +1,12 @@
 development:
   user: fedoraAdmin
   password: fedoraAdmin
-  url: <%= ENV['FEDORA_URL_SCHEME'] || 'http' %>://<%= ENV['FEDORA_HOST'] || 'localhost' %>:<%= ENV['FCREPO_DEVELOPMENT_PORT'] || 8984 %>/rest
+  url: <%= ENV['FEDORA_URL_SCHEME'] || 'http' %>://<%= ENV['FEDORA_HOST'] || 'localhost' %>:<%= ENV['FCREPO_DEVELOPMENT_PORT'] || 8080 %>/fcrepo/rest
   base_path: /dev
 test:
   user: fedoraAdmin
   password: fedoraAdmin
-  url: <%= ENV['FEDORA_URL_SCHEME'] || 'http' %>://<%= ENV['FEDORA_HOST'] || 'localhost' %>:<%= ENV['FEDORA_TEST_PORT'] || 8986 %>/rest
+  url: <%= ENV['FEDORA_URL_SCHEME'] || 'http' %>://<%= ENV['FEDORA_HOST'] || 'localhost' %>:<%= ENV['FEDORA_TEST_PORT'] || 8986 %>/fcrepo/rest
   base_path: /test
 production:
   user: fedoraAdmin

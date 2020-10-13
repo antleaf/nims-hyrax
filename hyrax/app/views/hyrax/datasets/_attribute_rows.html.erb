@@ -62,6 +62,8 @@
           <%#= # presenter.attribute_to_html(:rights_notes, html_dl: true) %>
         <% end %>
 
+        <%= presenter.attribute_to_html(:licensed_date, label: t('ngdr.fields.licensed_date'), html_dl: true) %>
+
         <% if can? :read_version, presenter.model_name.name.constantize %>
           <%= presenter.attribute_to_html(:complex_version, render_as: :nested_version, label: t('ngdr.fields.complex_version'), html_dl: true) %>
         <% end %>

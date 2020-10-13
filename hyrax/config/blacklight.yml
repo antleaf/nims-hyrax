@@ -2,7 +2,7 @@
 
 development:
   adapter: solr
-  url: <%= ENV['SOLR_URL_SCHEME'] || 'http' %>://<%= ENV['SOLR_HOST'] || '127.0.0.1' %>:<%= ENV['SOLR_PORT'] || '8983' %>/solr/hydra-development
+  url: <%= ENV['SOLR_URL_SCHEME'] || 'http' %>://<%= ENV['SOLR_HOST'] || '127.0.0.1' %>:<%= ENV['SOLR_PORT'] || '8983' %>/solr/hyrax_production
 test: &test
   adapter: solr
   url: <%= ENV['SOLR_URL_SCHEME'] || 'http' %>://<%= ENV['SOLR_HOST'] || '127.0.0.1' %>:<%= ENV['SOLR_TEST_PORT'] || '8985' %>/solr/hydra-test

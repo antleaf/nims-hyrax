@@ -77,7 +77,7 @@ en:
           place_sim: Location
           properties_addressed_sim: Properties addressed
           publisher_sim: Publisher
-          specimen_set_sim: Specimen
+          specimen_set_sim: Material/Specimen
           subject_sim: Subject
           synthesis_and_processing_sim: Synthesis and processing
           complex_state_of_matter_tesim: State of matter
@@ -165,7 +165,7 @@ en:
           properties_addressed_tesim: Properties addressed
           publisher_tesim: Publisher
           rights_statement_tesim: Rights Statement
-          specimen_set_tesim: Specimen
+          specimen_set_tesim: Material/Specimen
           subject_tesim: Subject
           synthesis_and_processing_tesim: Synthesis and processing
         show:
@@ -226,7 +226,7 @@ en:
           properties_addressed_tesim: Properties processed
           publisher_tesim: Publisher
           rights_statement_tesim: Rights Statement
-          specimen_type_tesim: Specimen
+          specimen_type_tesim: Material/Specimen
           subject_tesim: Subject
           synthesis_and_processing_tesim: Synthesis and processing
           table_of_contents_tesim: Table of contents
@@ -264,7 +264,7 @@ en:
     center_name: DPFC
     center_name_full: Materials Data Platform Center
     division_name: MaDIS
-    division_name_full: Research and Services Division of Materials Data and Integrated System 
+    division_name_full: Research and Services Division of Materials Data and Integrated System
     product_name: MDR
     product_name_full: "MDR: NIMS Materials Data Repository"
     product_twitter_handle: "@nims_library"

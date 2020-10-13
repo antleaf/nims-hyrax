@@ -93,6 +93,14 @@ class Publication < ActiveFedora::Base
     index.as :stored_searchable
   end
 
+  property :licensed_date, predicate: ::RDF::Vocab::NimsRdp['licenced-date'], multiple: false do |index|
+    index.as :stored_searchable, :facetable
+  end
+
+  property :specimen_set, predicate: ::RDF::Vocab::NimsRdp['specimen-set'] do |index|
+    index.as :stored_searchable, :facetable
+  end
+
   # This must be included at the end, because it finalizes the metadata
   # schema (by adding accepts_nested_attributes)
   include ::Hyrax::BasicMetadata

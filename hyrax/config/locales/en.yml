@@ -44,7 +44,7 @@ en:
       processing_environment:   "Processing environment"
       properties_addressed:     "Properties addressed"
       purchase_record_item:     "Purchase record item"
-      specimen_set:             "Specimen"
+      specimen_set:             "Material/Specimen"
       specimen_type:            "Specimen type"
       status:                   "Status"
       status_at_end:            "Status at end"

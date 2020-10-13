@@ -8,7 +8,7 @@ module Hyrax
       :complex_instrument, :origin_system_provenance, :properties_addressed,
       :complex_relation, :specimen_set, :complex_specimen_type,
       :synthesis_and_processing, :custom_property, :first_published_url, :doi,
-      :creator,  to: :solr_document
+      :creator, :licensed_date,  to: :solr_document
 
     Hyrax::MemberPresenterFactory.file_presenter_class = Hyrax::NimsFileSetPresenter
     prepend ::FilteredGraph

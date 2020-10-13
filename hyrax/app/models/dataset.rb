@@ -86,7 +86,7 @@ class Dataset < ActiveFedora::Base
   property :complex_relation, predicate: ::RDF::Vocab::DC.relation, class_name:"ComplexRelation"
 
   # TODO - This is required
-  property :specimen_set, predicate: ::RDF::Vocab::NimsRdp['specimen-set'], multiple: false do |index|
+  property :specimen_set, predicate: ::RDF::Vocab::NimsRdp['specimen-set'] do |index|
     index.as :stored_searchable, :facetable
   end
 
@@ -107,6 +107,10 @@ class Dataset < ActiveFedora::Base
 
   property :doi, predicate: ::RDF::Vocab::Identifiers.doi, multiple: false do |index|
     index.as :stored_searchable
+  end
+
+  property :licensed_date, predicate: ::RDF::Vocab::NimsRdp['licenced-date'], multiple: false do |index|
+    index.as :stored_searchable, :facetable
   end
 
   # This must be included at the end, because it finalizes the metadata

@@ -1,7 +1,7 @@
 # NB: the URLs in this file should match those in blacklight.yml
 
 development:
-  url: <%= ENV['SOLR_URL_SCHEME'] || 'http' %>://<%= ENV['SOLR_HOST'] || '127.0.0.1' %>:<%= ENV['SOLR_PORT'] || '8983' %>/solr/hydra-development
+  url: <%= ENV['SOLR_URL_SCHEME'] || 'http' %>://<%= ENV['SOLR_HOST'] || '127.0.0.1' %>:<%= ENV['SOLR_PORT'] || '8983' %>/solr/hyrax_production
 test:
   url: <%= ENV['SOLR_URL_SCHEME'] || 'http' %>://<%= ENV['SOLR_HOST'] || '127.0.0.1' %>:<%= ENV['SOLR_TEST_PORT'] || '8985' %>/solr/hydra-test
 production:
