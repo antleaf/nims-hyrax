@@ -30,6 +30,10 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    act-fluent-logger-rails (0.6.1)
+      activesupport (>= 4, < 6.1)
+      fluent-logger
+      railties (>= 4, < 6.1)
     actioncable (5.2.4.4)
       actionpack (= 5.2.4.4)
       nio4r (~> 2.0)
@@ -357,6 +361,8 @@ GEM
       activesupport (>= 4.0)
     flot-rails (0.0.7)
       jquery-rails
+    fluent-logger (0.9.0)
+      msgpack (>= 1.0.0, < 2)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
     gherkin (5.1.0)
@@ -590,6 +596,11 @@ GEM
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
+    lograge (0.11.2)
+      actionpack (>= 4)
+      activesupport (>= 4)
+      railties (>= 4)
+      request_store (~> 1.0)
     loofah (2.7.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -610,6 +621,7 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.2)
+    msgpack (1.3.3)
     multi_json (1.14.1)
     multi_test (0.1.2)
     multi_xml (0.6.0)
@@ -950,6 +962,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  act-fluent-logger-rails
   blacklight_oai_provider!
   bootstrap-datepicker-rails
   byebug
@@ -974,6 +987,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   listen (~> 3.0.5)
+  lograge
   pg
   pry
   puma (~> 3.12)

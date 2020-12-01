@@ -104,3 +104,5 @@ end
 
 gem 'coveralls', require: false
 gem 'rinku'
+gem 'act-fluent-logger-rails'
+gem 'lograge'

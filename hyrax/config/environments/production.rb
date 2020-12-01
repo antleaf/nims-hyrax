@@ -128,4 +128,9 @@ Rails.application.configure do
     }
 
   ExceptionNotifier::Rake.configure
+
+  config.log_level = :info
+  config.logger = ActFluentLoggerRails::Logger.new
+  config.lograge.enabled = true
+  config.lograge.formatter = Lograge::Formatters::Json.new
 end
