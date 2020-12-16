@@ -130,3 +130,25 @@ Then(/^I should see the following links to datasets:$/) do |table|
     expect(page).to have_link(row[:label], href: Regexp.new(Regexp.quote(row[:href])))
   end
 end
+
+When("I try to navigate to the dashboard page") do
+  visit hyrax.dashboard_path
+end
+
+Then("I should be redirected to the top page") do
+  expect(current_path).to eql(root_path)
+end
+
+When(/^I navigate to the (open|authenticated|embargo|lease|restricted) dataset page$/) do |access|
+  visit polymorphic_path(@datasets[access].first)
+end
+
+Then(/^I should access the (open|authenticated|embargo|lease|restricted) dataset$/) do |access|
+  expect(page).to have_content("#{access.capitalize} Dataset")
+  expect(page).not_to have_content('Unauthorized')
+end
+
+Then(/^I should not access the (open|authenticated|embargo|lease|restricted) dataset$/) do |access|
+  expect(page).not_to have_content("#{access.capitalize} Dataset")
+  expect(page).to have_content('Unauthorized')
+end

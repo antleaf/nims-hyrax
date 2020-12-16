@@ -10,9 +10,20 @@ Feature: Datasets catalog index
   Scenario: Unauthenticated user can only view open datasets
     When I navigate to the dataset catalog page
     Then I should see the open datasets
+    # And I should see only the public metadata of the open datasets
     And I should see both the public and restricted metadata of the open datasets
     But I should not see the authenticated datasets
-    And I should not see the restricted dataset
+    And I should not see the restricted datasets
+
+  Scenario: Email user can only view open datasets
+    Given I am logged in as an email user
+    When I navigate to the dataset catalog page
+    Then I should see the open datasets
+    And I should not see the restricted datasets
+    # And I should see only the public metadata of the open datasets
+    And I should see both the public and restricted metadata of the open datasets
+    But I should not see the authenticated datasets
+    And I should not see the restricted datasets
 
   Scenario: Non-researcher user can view open and authenticated datasets
     Given I am logged in as a nims_other user
@@ -30,7 +41,7 @@ Feature: Datasets catalog index
     And I should see the authenticated datasets
     And I should see both the public and restricted metadata of the open datasets
     And I should see both the public and restricted metadata of the authenticated datasets
-    But I should not see the restricted dataset
+    But I should not see the restricted datasets
 
   Scenario: Admin user can view open, authenticated and restricted datasets
     Given I am logged in as an admin user

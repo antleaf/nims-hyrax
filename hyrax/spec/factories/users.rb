@@ -31,20 +31,34 @@ FactoryBot.define do
       guest { true }
     end
 
+    trait :email do
+      sequence(:display_name) { |n| "Email user #{n}"}
+      guest { true }
+      employee_type_code { '60' }
+    end
+
     trait :admin do
       roles { build_list :role, 1, :admin }
+      guest { false }
+      employee_type_code { '11' }
     end
 
     trait :nims_researcher do
       sequence(:display_name) { |n| "Researcher #{n}"}
       guest { false }
-      employee_type_code { 'A' }
+      employee_type_code { '11' }
     end
 
     trait :nims_other do
       sequence(:display_name) { |n| "Non-Researcher #{n}"}
       guest { false }
-      employee_type_code { 'T' }
+      employee_type_code { '21' }
+    end
+
+    trait :external_researcher do
+      sequence(:display_name) { |n| "External-Researcher #{n}"}
+      guest { false }
+      employee_type_code { '30' }
     end
   end
 end

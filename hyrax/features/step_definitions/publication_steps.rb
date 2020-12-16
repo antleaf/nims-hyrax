@@ -130,3 +130,17 @@ Then(/^I should see the following links to publications:$/) do |table|
     expect(page).to have_link(row[:label], href: Regexp.new(Regexp.quote(row[:href])))
   end
 end
+
+When(/^I navigate to the (open|authenticated|embargo|lease|restricted) publication page$/) do |access|
+  visit polymorphic_path(@publications[access].first)
+end
+
+Then(/^I should access the (open|authenticated|embargo|lease|restricted) publication$/) do |access|
+  expect(page).to have_content("#{access.capitalize} Publication")
+  expect(page).not_to have_content('Unauthorized')
+end
+
+Then(/^I should not access the (open|authenticated|embargo|lease|restricted) publication$/) do |access|
+  expect(page).not_to have_content("#{access.capitalize} Publication")
+  expect(page).to have_content('Unauthorized')
+end

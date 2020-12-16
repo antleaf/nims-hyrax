@@ -1,7 +1,7 @@
 module NIMSRoles
   def authenticated_nims_researcher?
     unless defined?(@authenticated_nims_researcher)
-      if !guest? && employee_type_code.present? && employee_type_code =~ /^(A|G|L|Q|R|S)/i
+      if !guest? && employee_type_code.present? && employee_type_code =~ /^1[1-3]$/i
         @authenticated_nims_researcher = true
       else
         @authenticated_nims_researcher = false
@@ -12,7 +12,7 @@ module NIMSRoles
 
   def authenticated_nims_other?
     unless defined?(@authenticated_nims_other)
-      if !guest? && employee_type_code.present? && employee_type_code =~ /^(T|Z)/i
+      if !guest? && employee_type_code.present? && employee_type_code =~ /^2[1-2]$/i
         @authenticated_nims_other = true
       else
         @authenticated_nims_other = false
@@ -27,6 +27,16 @@ module NIMSRoles
 
   def authenticated_external?
     # Coming in Phase 3 (June 2020)
+    external_user?
+  end
+
+  def email_user?
+    return true if employee_type_code == '60'
+    false
+  end
+
+  def external_user?
+    return true if employee_type_code == '30'
     false
   end
 

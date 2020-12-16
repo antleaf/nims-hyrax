@@ -9,6 +9,16 @@ FactoryBot.define do
       title { ["Open Publication"] }
     end
 
+    trait :authenticated do
+      visibility { 'authenticated' }
+      title { ["Authenticated Publication"] }
+    end
+
+    trait :restricted do
+      visibility { 'restricted' }
+      title { ["Restricted Publication"] }
+    end
+
     trait :with_complex_author do
       complex_person_attributes {
         [{

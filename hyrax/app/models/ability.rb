@@ -32,6 +32,8 @@ class Ability
   def create_content
     # only NIMS Researchers may upload new content
     can :create, [::Dataset, ::Publication] if current_user.authenticated_nims_researcher?
+    can :create, [::Dataset, ::Publication] if current_user.authenticated_external?
+    can :create, [::Dataset, ::Publication, ::Image] if current_user.admin?
   end
 
   def read_metadata
@@ -67,5 +69,16 @@ class Ability
     else
       cannot :index, ::User
     end
+  end
+
+  def user_groups
+    return @user_groups if @user_groups
+
+    @user_groups = default_user_groups
+    @user_groups |= current_user.groups if current_user.respond_to? :groups
+    unless current_user.new_record?
+      @user_groups |= ['registered'] unless current_user.email_user?
+    end
+    @user_group
   end
 end
