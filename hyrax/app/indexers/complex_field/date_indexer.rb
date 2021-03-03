@@ -58,7 +58,7 @@ module ComplexField
         # date as complex_date_type displayable
         fld_name = Solrizer.solr_name("complex_date_#{label}", :displayable)
         solr_doc[fld_name] = [] unless solr_doc.include?(fld_name)
-        solr_doc[fld_name] << vals
+        solr_doc[fld_name] << vals unless vals.blank?
         solr_doc[fld_name].flatten!
       end
     end
