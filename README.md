@@ -1,6 +1,6 @@
 ## Introduction
 
-[Nims-Hyrax](https://github.com/nims-dpfc/nims-hyrax/) is an implementation of the Hyrax stack by [Cottage Labs](https://cottagelabs.com/) and [AntLeaf](https://antleaf.com/). It is built with Docker containers, which simplify development and deployment onto live services.
+[Nims-Hyrax](https://github.com/nims-dpfc/nims-hyrax) is an implementation of the Hyrax stack by [Cottage Labs](https://cottagelabs.com/) and [AntLeaf](https://antleaf.com/). It is built with Docker containers, which simplify development and deployment onto live services.
 
 ## Code Status
 
