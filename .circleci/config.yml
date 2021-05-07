@@ -47,8 +47,16 @@ jobs:
           command: |
             cd hyrax
             export FITS_PATH=~/nims-hyrax/fits-1.3.0/fits.sh
+            mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            if test -f "lib/tasks/test_servers.rake"; then echo 'Running full tests' && bundle exec rake test:servers:start && bundle exec rspec && bundle exec cucumber && bundle exec rake test:servers:stop; else echo "Running limited tests"; bundle exec rspec --exclude-pattern "**/features/*_spec.rb"; fi
+            bundle exec rake test:servers:start
+            bundle exec rspec --format progress \
+                            --format RspecJunitFormatter \
+                            --out /tmp/test-results/rspec.xml \
+                            $TEST_FILES
+            bundle exec cucumber
+            bundle exec rake test:servers:stop
+
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
