@@ -87,6 +87,13 @@
                     "from_states": [
                         { "names": ["pending_review", "deposited"], "roles": ["approving"] },
                         { "names": ["changes_required"], "roles": ["depositing"] }
+                    ],
+                    "notifications": [
+                        {
+                            "notification_type": "email",
+                            "name": "Hyrax::Workflow::CommentNotification",
+                            "to": ["approving", "depositing"]
+                        }
                     ]
                 }
             ]
