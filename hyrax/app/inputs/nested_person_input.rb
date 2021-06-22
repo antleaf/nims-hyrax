@@ -138,22 +138,26 @@ protected
     out << '</div>' # row
 
     # --- corresponding_author
-    # FIXME: commented out temporarily
-    # field = :corresponding_author
-    # field_name = singular_input_name_for(attribute_name, index, field, parent)
-    # field_id = id_for(attribute_name, index, field, parent)
-    # field_value = value.send(field).present? ? true : false
+    field = :corresponding_author
+    field_name = singular_input_name_for(attribute_name, index, field, parent)
+    field_id = id_for(attribute_name, index, field, parent)
+    field_value = if value.send(field)
+                    value.send(field).first || 0
+                  else
+                    1
+                  end
+    field_checked = field_value.to_i.zero? ? false : true
 
-    # out << "<div class='row'>"
-    # out << "  <div class='col-md-3'>"
-    # out << template.label_tag(field_name, I18n.t('ngdr.fields.corresponding_author'), required: required)
-    # out << '  </div>'
+    out << "<div class='row'>"
+    out << "  <div class='col-md-3'>"
+    out << template.label_tag(field_name, I18n.t('ngdr.fields.corresponding_author'), required: required)
+    out << '  </div>'
 
-    # out << "  <div class='col-md-2'>"
-    # out << @builder.check_box(field_name,
-    #   options.merge(checked: field_value, name: field_name, id: field_id, required: required))
-    # out << '  </div>'
-    # out << '</div>' # row
+    out << "  <div class='col-md-2'>"
+    out << @builder.check_box(field_name,
+      options.merge(checked: field_checked, value: field_value, name: field_name, id: field_id, required: required, class: 'corresponding_author'))
+    out << '  </div>'
+    out << '</div>' # row
 
     # --- display_order
     field = :display_order
