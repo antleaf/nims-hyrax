@@ -304,4 +304,6 @@ class CatalogController < ApplicationController
       additional_export_formats(@document, format)
     end
   end
+
+  BlacklightOaiProvider::SolrDocumentProvider.register_format(Metadata::Jpcoar.instance)
 end

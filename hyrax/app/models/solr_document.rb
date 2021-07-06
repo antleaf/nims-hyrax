@@ -7,6 +7,7 @@ class SolrDocument
   # Adds Hyrax behaviors to the SolrDocument.
   include Hyrax::SolrDocumentBehavior
   include Hyrax::SolrDocument::MdrExport
+  include Hyrax::SolrDocument::Jpcoar
 
   # self.unique_key = 'id'
 

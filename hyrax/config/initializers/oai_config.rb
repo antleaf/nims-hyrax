@@ -9,5 +9,6 @@ OAI_CONFIG =
         },
         document: {
             limit: 25,            # number of records returned with each request, default: 15
+            supported_formats: %w(oai_dc jpcoar),
         }
     }
